@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="post">
+    <a class="btn-edit" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+    <h1>{{post.title}}</h1>
+    <p>{{post.text|linebreaksbr}}</p>
+</div>
+{% endblock %}
