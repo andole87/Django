@@ -2,10 +2,12 @@
 {% extends 'audio/base.html' %}
 {% block content %}
     {% for audio in audios %}
+    <div class="col-md-3 col-xs-12">
         <div class="audio">
             <h1><a href="{% url 'audio_detail' pk=audio.pk %}">{{audio.title}}</a></h1>
             <p>{{audio.speaker}}</p>
             <p>{{audio.text}}</p>
         </div>
+    </div>
     {% endfor %}
  {% endblock %}

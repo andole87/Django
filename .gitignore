@@ -1,5 +1,7 @@
 *.pyc
 *~
+*.mp3
+
 __pycache__
 myvenv
 db.sqlite3

@@ -5,7 +5,14 @@
     <div class="audio">
         <h1>{{audio.title}}</h1>
         <h3>{{audio.speaker}}</h3>
-        <div class="text"><img src="{{audio.text}}"></div>
+        <div class="text">
+            {{audio.text}}
+        </div>
+        <div class="sound">
+            <audio controls="" controlslist="nodownload">
+                <source src="/static/audiosrc/{{audio.audiosrc}}.mp3" type="audio/mp3" data-track-number="1">
+            </audio>
+        </div>
         
     </div>
 
