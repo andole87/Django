@@ -14,7 +14,13 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh_index')
+HAYSTACK_CONNECTIONS={
+    'default' : {
+        'ENGINE' : 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH' : WHOOSH_INDEX,
+    },
+}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'audio',
+    'haystack',
 ]
 
 MIDDLEWARE = [
