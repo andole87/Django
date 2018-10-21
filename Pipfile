@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 django = "==2.1"
 mysqlclient = "*"
-haystack = "*"
 whoosh = "*"
+django-haystack = "*"
+uwsgi = "*"
 
 [dev-packages]
 
