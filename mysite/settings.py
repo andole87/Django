@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os, json
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,20 @@ HAYSTACK_CONNECTIONS={
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v2ynxs*@!eq*k7*xad3x4g&k$6%%!o)^jqci1bu^8)q2b$j5j#'
+#Modify key -20181022
+secret_file = os.path.join(BASE_DIR,'secret.json')
+
+with open(secret_file) as f:
+    secret = json.loads(f.read())
+
+def get_secret(setting,secret=secret):
+    try:
+        return secret[setting]
+    except KeyError:
+        error_msg = "Check {} THAT".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,19 +94,21 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+# Modify Database Account - 20181022
 
-DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Django',
-        'USER': 'django',
-        'PASSWORD': 'dksehf98',
-        'HOST': '115.93.60.230',
-        'PORT': '3306',
-    }
-}
+db_file = os.path.join(BASE_DIR,'database.json')
+
+with open(db_file) as f:
+    db = json.loads(f.read())
+
+def get_db(setting,db=db):
+    try:
+        return db[setting]
+    except KeyError:
+        error_msg = "Check {} THAT".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+DATABASES = get_db("DATABASES")
 
 
 # Password validation
