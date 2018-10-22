@@ -7,6 +7,7 @@ class Audio(models.Model):
     title = models.CharField(max_length=200)
     speaker = models.CharField(max_length=100)
     audiosrc = models.CharField(max_length=255)
+    imgsrc = models.CharField(max_length=255,null=True)
     text = models.TextField()
     published_date = models.DateTimeField(blank=True, null=True)
 

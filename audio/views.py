@@ -5,7 +5,7 @@ from .models import Audio
 # Create your views here.
 
 def audio_list(request):
-    audios = Audio.objects.order_by('title')
+    audios = Audio.objects.order_by('audiosrc')
     return render(request, 'audio/audio_list.html', {'audios':audios})
 
 def audio_detail(request, pk):

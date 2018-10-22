@@ -1,13 +1,52 @@
-
 {% extends 'audio/base.html' %}
+{# % load filter_tags % #}
 {% block content %}
-    {% for audio in audios %}
-    <div class="col-md-3 col-xs-12">
-        <div class="audio">
-            <h1><a href="{% url 'audio_detail' pk=audio.pk %}">{{audio.title}}</a></h1>
-            <p>{{audio.speaker}}</p>
-            <p>{{audio.text}}</p>
-        </div>
+{% comment %}
+{% for audio in audios %}
+
+{% if forloop.counter|modulo:4 == 1 %}
+<div class="col-md-2 col-md-offset-1 col-xs-6">
+    <div class="audio">
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg"
+                alt=""></a>
+        <p>
+            <br>
+        </p>
     </div>
-    {% endfor %}
- {% endblock %}
+</div>
+{% elif forloop.counter|modulo:4 == 0 %}
+<div class="col-md-2 col-md-offset-1-5">
+    <div class="audio">
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg"
+                alt=""></a>
+        <p>
+            <br>
+        </p>
+    </div>
+</div>
+<div class="col-md-offset-1"></div>
+{% else %}
+<div class="col-md-2 col-md-offset-1-5 col-xs-6">
+    <div class="audio">
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg"
+                alt=""></a>
+        <p>
+            <br>
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endcomment %}
+
+{% for audio in audios %}
+<div class="col-md-2 col-md-offset-1 col-xs-6">
+    <div class="audio">
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt=""></a>
+        <p>
+            <br>
+        </p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
