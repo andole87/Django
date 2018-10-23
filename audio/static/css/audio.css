@@ -1,12 +1,25 @@
 body{
     padding-top: 50px;
 }
-
-.navbar.center{
+.container-center{
     text-align: center;
-}
-.navbar.center .nav{
+    width: 70%;
     float: none;
-    display:inline-block;
-    vertical-align: middle;
+
+}
+
+.navbar-toggle.navbar-left{
+    float: left;
+    margin-left: 10px;
+}
+
+.navbar-form{
+    border: 0px;
+}
+
+.glyphicon.glyphicon-search{
+    color: #ffffff;
+}
+.navbar-fixed-top{
+    margin: 0px;
 }

@@ -1,0 +1,15 @@
+{% extends 'audio/base.html' %}
+{% block content %}
+{% for audio in audios %}
+<div class="col-md-2 col-md-offset-1 col-xs-6">
+    <div class="audio">
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt=""></a>
+        <p>
+            <br>
+        </p>
+    </div>
+</div>
+{% empty %}
+<li>1</li>
+{% endfor %}
+{% endblock %}

@@ -4,8 +4,8 @@ from django.utils import timezone
 
 class Audio(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    speaker = models.CharField(max_length=100)
+    title = models.CharField(db_index=True,max_length=20)
+    speaker = models.CharField(db_index=True,max_length=10)
     audiosrc = models.CharField(max_length=255)
     imgsrc = models.CharField(max_length=255,null=True)
     text = models.TextField()

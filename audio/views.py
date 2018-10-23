@@ -12,4 +12,6 @@ def audio_detail(request, pk):
     audio = get_object_or_404(Audio, pk=pk)
     return render(request, 'audio/audio_detail.html', {'audio':audio})
 
-
+def audio_search(request, title):
+    audio = Audio.objects.filter(title__contains=title)
+    return render(request, 'audio/audio_search.html', {'audios':audio})
