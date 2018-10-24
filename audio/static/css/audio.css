@@ -7,6 +7,9 @@ body{
     float: none;
 
 }
+.img-thumnail{
+    border: none;
+}
 
 .navbar-toggle.navbar-left{
     float: left;

@@ -40,10 +40,13 @@
 {% for audio in audios %}
 <div class="col-md-2 col-md-offset-1 col-xs-6">
     <div class="audio">
-        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt=""></a>
+        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt="">
         <p>
+            {{ audio.speaker }} 가 읽는
             <br>
+            {{ audio.title }}
         </p>
+      </a>
     </div>
 </div>
 {% endfor %}
