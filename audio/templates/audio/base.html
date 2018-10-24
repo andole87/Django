@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>ThisIsAudioBook</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -75,7 +77,7 @@
           <div class="input-group">
           <input type="text" class="form-control" id="searchText" placeholder="제목,낭독자..">
           <span class="input-group-btn">
-            <button type="button" class="btn btn-default" onclick="goSearch()" onkeydown="goEnter()">GO</i></button>
+            <button type="button" class="btn btn-default" onclick="goSearch()">GO</i></button>
           </span>
           </div>
         </form>
@@ -83,15 +85,31 @@
     </div>
   </nav>
 <script>
+  var lastScroll = 0;
+  $(document).ready(function(){
+    $('input[type="text"]').keydown(function(){
+      if(event.keyCode ==13){
+        event.preventDefault();
+        var param = $('#searchText').val();
+        window.location.href="/search/"+param;
+      }
+    })
+  })
   function goSearch(){
     var param = $('#searchText').val();
     window.location.href= "/search/"+ param;
-  }
-  function goEnter(){
-    if(event.keyCode == 13){
-      goSearch();
-    }
-  }
+  };
+
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      if($(this).scrollTop()>lastScroll){
+        $(".navbar").fadeOut();
+      }else{
+        $(".navbar").fadeIn();
+      }
+      lastScroll = $(this).scrollTop();
+    })
+  })
   
 </script>
 
