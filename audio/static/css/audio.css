@@ -14,8 +14,12 @@ a{
     font-size: 18px;
     color: gray;
 }
-
-
+.glyphicon-play{
+    font-size: 50px;
+}
+.glyphicon-pause{
+    font-size: 50px;
+}
 .img-thumbnail{
     border: none;
 }
