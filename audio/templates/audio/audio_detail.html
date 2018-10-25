@@ -14,38 +14,9 @@
             </audio>
         </div>
         <div class="col-md-offset-4 col-md-4">
-            <i class="glyphicon glyphicon-play" onclick="playAudio()"></i>
-            <i class="glyphicon glyphicon-pause" onclick="pauseAudio()"></i>
+            
             <p id="runningTime">3분 미리듣기</p>
         </div>
-        
-        <script>
-        function playAudio(){
-            var playtime=$('#audiobook').cu
-            $('#audiobook').get(0).play();
-        }
-        function pauseAudio(){
-            $('#audiobook').get(0).pause();
-        }
-        function updateRunningtime(track){
-            var currtime = 180 - Math.floor($('#audiobook').get(0).currentTime);
-            console.log(currtime);
-            $('#runningTime').text(formatSecondsAsTime(currtime));
-        }
-        
-        function formatSecondsAsTime(int){
-            if(int ==180){
-                return "00:00";
-            }
-            var minutes = Math.floor(int/60);
-            var seconds = int - (minutes*60);
-
-            if(minutes<10){minutes = "0"+minutes;}
-            if(seconds<10){seconds = "0"+minutes;}
-            return minutes+":"+seconds;
-        }
-
-        </script>
     </div>
 
 {% endblock %}
