@@ -41,7 +41,7 @@ $(window).on('popstate', function(event){
 
 
 function playAudio(){
-    var audiosrc = $('#audiobook').dataset.source;
+    var audiosrc = $('#audiobook').data('source');
     var audio = new Audio(audiosrc);
     audio.play();
 }
