@@ -41,10 +41,12 @@ $(window).on('popstate', function(event){
 
 
 function playAudio(){
-    $('#audiobook').get(0).play();
+    var audiosrc = $('#audiobook').dataset.source;
+    var audio = new Audio(audiosrc);
+    audio.play();
 }
 function pauseAudio(){
-    $('#audiobook').get(0).pause();
+    
 }
 function updateRunningtime(track){
     var currtime = 180 - Math.floor($('#audiobook').get(0).currentTime);
