@@ -13,5 +13,5 @@ def audio_detail(request, pk):
     return render(request, 'audio/audio_detail.html', {'audio':audio})
 
 def audio_search(request, title):
-    audio = Audio.objects.filter(title__contains=title)
+    audio = Audio.objects.filter(title__contains=title).union(Audio.objects.filter(speaker__contains=title))
     return render(request, 'audio/audio_search.html', {'audios':audio})
