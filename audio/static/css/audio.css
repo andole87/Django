@@ -7,9 +7,15 @@ body{
     width: 70%;
     float: none;
 }
-a{
+a:hover{
     text-decoration: none;
 }
+a{
+    font-size: 18px;
+    color: gray;
+}
+
+
 .img-thumbnail{
     border: none;
 }
