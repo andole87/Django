@@ -11,7 +11,7 @@
   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/audio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/audio.css' %}?ver=1">
 </head>
 <body>
   <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -85,7 +85,7 @@
     </div>
   </nav>
 <script>
-  var lastScroll = 0;
+  
   $(document).ready(function(){
     $('input[type="text"]').keydown(function(){
       if(event.keyCode ==13){
@@ -100,17 +100,33 @@
     window.location.href= "/search/"+ param;
   };
 
-  $(document).ready(function(){
-    $(window).scroll(function(){
-      if($(this).scrollTop()>lastScroll){
-        $(".navbar").fadeOut();
-      }else{
-        $(".navbar").fadeIn();
-      }
-      lastScroll = $(this).scrollTop();
-    })
-  })
-  
+var prevScrollpos = $(window).scrollTop();
+    $(window).scroll(function () {
+          var currentScrollPos = $(window).scrollTop();
+          if (prevScrollpos > currentScrollPos || prevScrollpos < 100) {
+            $('.navbar').css("visibility","visible");
+          } else {
+            
+            $('.navbar').css("visibility","hidden");
+          }
+          prevScrollpos = currentScrollPos;
+        })
+
+    // $(document).ready(function(){
+    //   $('a').click(function(event){
+    //     event.preventDefault();
+    //     clickLink();
+    //   })
+    // })
+    
+    // function clickLink(){
+    //   $.ajax({
+    //     url:''
+    //   })
+    // }
+
+
+
 </script>
 
 
