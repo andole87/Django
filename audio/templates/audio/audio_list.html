@@ -37,13 +37,13 @@
 {% endfor %} -->
 {% endcomment %}
 {% for audio in audios %}
-<div class="col-md-2 col-md-offset-1 col-xs-6">
+<div class="col-md-3 col-xs-6">
     <div class="audio" style="text-align:center;">
-        <a href="{% url 'audio_detail' pk=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt="">
+        <a href="{% url 'details' i=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt="">
         <p>
-            {{ audio.speaker }} 가 읽는
+            <span>{{ audio.speaker }}</span><span class="joiner">{{audio.title_speaker_join}}</span> 
             <br>
-            {{ audio.title }}
+            <span class="joiner">{{ audio.title_author }}의</span><span>&nbsp;{{ audio.title}}</span>
             <br><br>
         </p>
       </a>

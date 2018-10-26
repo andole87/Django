@@ -2,18 +2,22 @@
 
 {% block content %}
 
-    <div class="audio">
-        <h1>{{audio.title}}</h1>
-        <h3>{{audio.speaker}}</h3>
-        <div class="text">
-            {{audio.text}}
-        </div>
-        <div id="audiobook" data-source="/static/audiosrc/{{audio.audiosrc}}.mp3">
-        </div>
-        <div class="col-md-offset-4 col-md-4">
-            
-            <p id="runningTime">3분 미리듣기</p>
-        </div>
+<div class="container container-detail">
+    <h1>{{ details.detail_title }}</h1>
+    <h3>{{ details.detail_speaker }} 낭독</h3>
+    <div class="text">
+        <h4>{{ details.detail_pubdate }} 발표</h4>
+        <h5>재생시간 : {{ details.detail_playtime }}</h5>
+        <br><br><br>
+        {{ details.detail_text }}
+        <br><br><br>
     </div>
+    <div id="audiobook" class="col-md-offset-5 col-md-4 col-xs-offset-4 col-xs-4" data-source="/static/audiosrc/{{ details.detail_audiosrc }}.mp3"
+        data-name="{{ details.detail_title }}">
+        <i class="glyphicon glyphicon-play" onclick="playAudio()"></i>
+        <p>3분 미리듣기</p>
+    </div>
+
+</div>
 
 {% endblock %}

@@ -10,16 +10,44 @@ body{
 a:hover{
     text-decoration: none;
 }
+.col-navbar-bottom{
+    height: 18px;
+}
+
+@media screen and (max-width: 470px){
+    a span{
+        font-size: 3vw;
+    }
+    .joiner{
+        font-size: 2vw;
+    }
+}
+@media screen and (min-width:1280px){
+    a span{
+        font-size:18px;
+    }
+    .joiner{
+        font-size:15px;
+    }
+}
 a{
-    font-size: 18px;
+    color: #525252;
+}
+.joiner{
     color: gray;
 }
+
 .glyphicon-play{
     font-size: 50px;
 }
 .glyphicon-pause{
+    font-size: 30px;
+    vertical-align:middle;
+}
+.glyphicon-plus{
     font-size: 50px;
 }
+
 .img-thumbnail{
     border: none;
 }
