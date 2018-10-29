@@ -8,16 +8,28 @@
     <div class="text">
         <h4>{{ details.detail_pubdate }} 발표</h4>
         <h5>재생시간 : {{ details.detail_playtime }}</h5>
-        <br><br><br>
-        {{ details.detail_text }}
-        <br><br><br>
+        <br>
+        <p>
+        {{ details.detail_title_text }}
+    </p>
+        <br>
+        <p>
+        {{ details.detail_author_text }}
+    </p>
+        
+    <br>
+    <p>
+        {{ details.detail_speaker_text }}
+    </p>
+        <br><br>
     </div>
-    <div id="audiobook" class="col-md-offset-5 col-md-4 col-xs-offset-4 col-xs-4" data-source="/static/audiosrc/{{ details.detail_audiosrc }}.mp3"
+    
+    <div id="audiobook" class="col-md-2 col-xs-2 col-centered" data-source="/static/audiosrc/{{ details.detail_audiosrc }}.mp3"
         data-name="{{ details.detail_title }}">
-        <i class="glyphicon glyphicon-play" onclick="playAudio()"></i>
-        <p>3분 미리듣기</p>
-    </div>
-
+        <i class="glyphicon glyphicon-play" data-toggle= "tooltip" title = "3분 들어보기" onclick="playAudio()"></i>
+        
+    
+</div>
 </div>
 
 {% endblock %}
