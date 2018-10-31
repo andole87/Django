@@ -23,7 +23,7 @@ a:hover{
         font-size: 3vw;
     }
     .joiner{
-        font-size: 2vw;
+        font-size: 3vw;
     }
 }
 @media screen and (min-width:1280px){
@@ -31,8 +31,13 @@ a:hover{
         font-size:18px;
     }
     .joiner{
-        font-size:15px;
+        font-size:18px;
     }
+}
+
+.align-left-padding-5{
+    margin-left: 10px;
+    text-align: left;
 }
 a{
     color: #525252;
@@ -43,6 +48,7 @@ a{
 
 .glyphicon-play{
     font-size: 50px;
+    margin-top: 9px;
 }
 .glyphicon-pause{
     font-size: 40px;

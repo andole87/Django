@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib import admin
 # Create your models here.
 
 class Audio(models.Model):
@@ -40,6 +41,3 @@ class Audio_Detail(models.Model):
 
     def __str__(self):
         return self.detail_title
-
-    
-
