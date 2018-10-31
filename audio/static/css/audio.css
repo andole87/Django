@@ -8,8 +8,8 @@ body{
     float: none;
 }
 .container-fluid{
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 a:hover{
     text-decoration: none;
@@ -18,20 +18,21 @@ a:hover{
     height: 18px;
 }
 
+
 @media screen and (max-width: 470px){
-    a span{
+    .align-left-padding-5{
+        margin-left: 10px;
+        text-align: left;
         font-size: 3vw;
-    }
-    .joiner{
-        font-size: 3vw;
+        word-break: keep-all;
     }
 }
 @media screen and (min-width:1280px){
-    a span{
-        font-size:18px;
-    }
-    .joiner{
-        font-size:18px;
+    .align-left-padding-5{
+        margin-left: 10px;
+        text-align: left;
+        font-size: 18px;
+        word-break: keep-all;
     }
 }
 

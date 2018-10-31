@@ -36,20 +36,36 @@
 {% endif %}
 {% endfor %} -->
 {% endcomment %}
+{% comment %}
 {% for audio in audios %}
-<div class="col-md-3 col-xs-6">
+<!-- <div class="col-md-3 col-xs-6">
     <div class="audio" style="text-align:center;">
         <a href="{% url 'details' i=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt="">
         <p class="align-left-padding-5">
-            <span>{{ audio.speaker }}</span><span class="joiner">{{audio.title_speaker_join}}</span> 
-            <br>
-            <span class="joiner">{{ audio.title_author }}의</span><span>&nbsp;{{ audio.title}}</span>
-            <br><br>
+            {{ audio.speaker }}{{audio.title_speaker_join}} {{ audio.title_author }}의 {{ audio.title}}
         </p>
       </a>
     </div>
-</div>
+</div> -->
 {% endfor %}
+{% endcomment %}
+
+{% for audio in audios %}
+    {% if forloop.first %}<div class="row row-eq-height">{% endif %}
+            <div class="col-md-3 col-xs-6">
+                    <div class="audio" style="text-align:center;">
+                        <a href="{% url 'details' i=audio.pk %}"><img class="img-thumbnail" src="/static/img/{{audio.imgsrc}}.jpg" alt="">
+                        <p class="align-left-padding-5">
+                            {{ audio.speaker }}{{audio.title_speaker_join}} {{ audio.title_author }}의 {{ audio.title}}
+                            <br><br><br>
+                        </p>
+                      </a>
+                    </div>
+                </div>
+    {% if forloop.counter|divisibleby:4 %}</div><div class="row row-eq-height">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
+
 {% endblock %}
 
 
