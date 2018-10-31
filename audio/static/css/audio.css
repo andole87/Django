@@ -14,6 +14,9 @@ body{
 a:hover{
     text-decoration: none;
 }
+p{
+	word-break: keep-all;
+}
 .col-navbar-bottom{
     height: 18px;
 }
