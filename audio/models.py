@@ -8,10 +8,9 @@ class Audio(models.Model):
     title = models.CharField(db_index=True,max_length=20)
     title_speaker_join = models.CharField(max_length=5,null=True)
     speaker = models.CharField(db_index=True,max_length=10)
-    title_author = models.CharField(max_length=5)
+    title_author = models.CharField(max_length=5,default='tt', null=True)
     imgsrc = models.CharField(max_length=255,null=True)
     fulltitle = models.CharField(max_length=100)
-    published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
