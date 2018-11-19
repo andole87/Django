@@ -4,9 +4,7 @@ $(document).ready(function () {
     $('input[type="text"]').keydown(function () {
         if (event.keyCode == 13) {
             event.preventDefault();
-            var param = $('#searchText').val();
-            history.pushState(null, null, '/search/' + param);
-            $('.container-fluid').load('/search/' + param);
+            goSearch();
         }
     })
 })
@@ -40,17 +38,11 @@ $(window).on('popstate', function (event) {
     $('.container-fluid').load(location.href + ' .container-fluid');
 })
 
-
-
-
-
-
-
-
 function goSearch() {
     var param = $('#searchText').val();
     history.pushState(null, null, '/search/' + param);
     $('.container-fluid').load('/search/' + param);
+    $('#searchText').value = '';
 };
 
 $(window).scroll(function () {

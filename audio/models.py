@@ -21,7 +21,7 @@ class Audio(models.Model):
 
 class Audio_Detail(models.Model):
     detail_parent = models.ForeignKey(Audio, on_delete = models.CASCADE)
-    detail_title = models.CharField(max_length=20)
+    detail_title = models.CharField(max_length=50)
     detail_author = models.CharField(max_length=20)
     detail_speaker = models.CharField(max_length=20)
     detail_pubdate = models.CharField(max_length=10, null=True)

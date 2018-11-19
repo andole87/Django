@@ -10,8 +10,9 @@ def audio_list(request):
     return render(request, 'audio/audio_list.html', {'audios':audios})
 
 def audio_detail(request, i):
+    audio = Audio.objects.get(id = i)
     details = Audio_Detail.objects.get(detail_parent_id = i)
-    return render(request, 'audio/audio_detail.html', {'details':details})
+    return render(request, 'audio/audio_detail.html', {'details':details, 'audio':audio})
 
 def audio_search(request, title):
     audio = Audio.objects.filter(title__contains=title).union(Audio.objects.filter(speaker__contains=title))

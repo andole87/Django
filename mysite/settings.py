@@ -151,8 +151,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-        '/srv/Django/audio/static',
-        '/srv/Django/admin/static',
+        '/srv/django/audio/static',
+        '/srv/django/admin/static',
         )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
